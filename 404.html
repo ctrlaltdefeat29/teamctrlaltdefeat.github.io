@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // Redirect all 404 paths to index.html
+      // Get current path after repo
+      const repoPath = '/teamctrlaltdefeat.github.io'; // CHANGE THIS to your repo name
       const path = window.location.pathname;
-      window.location.replace('https://ctrlaltdefeat29.github.io/teamctrlaltdefeat.github.io/index.html');
+
+      // Redirect everything to index.html inside repo
+      if (!path.startsWith(repoPath + '/index.html')) {
+        window.location.replace(repoPath + '/index.html');
+      }
     </script>
   </head>
   <body></body>
 </html>
-
