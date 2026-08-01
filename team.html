@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet the Team | Ctrl-Alt-Defeat #31844</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      padding: 3.5rem 2.5rem 2.5rem;
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: 2px; line-height: 1;
+    }
+    .page-hero p {
+      color: var(--muted2); font-size: 0.95rem;
+      max-width: 560px; margin-top: 0.75rem;
+    }
+    .divider-red {
+      width: 48px; height: 3px;
+      background: var(--red); border-radius: 2px;
+      margin: 1rem 0;
+    }
+
+    .team-section { padding: 4rem 2.5rem; background: var(--dark); }
+    .coaches-section { padding: 3rem 2.5rem 4rem; background: var(--dark2); border-top: 1px solid var(--border); }
+
+    /* Flex container configured for centering cards */
+    .members-grid, .coaches-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: 2.5rem;
+    }
+
+    /* Fixed flex basis for uniform card sizes */
+    .member-card {
+      flex: 0 0 calc(20% - 0.9rem);
+      max-width: calc(20% - 0.9rem);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .member-card:hover {
+      border-color: rgba(201,64,64,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Compact Photo & Info Styling */
+    .member-photo {
+      width: 100%; aspect-ratio: 1/1;
+      background: var(--dark3);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .member-info { padding: 0.85rem 0.95rem; text-align: center; }
+    .member-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 0.5px; margin-bottom: 0.2rem;
+    }
+    .member-role {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--red);
+    }
+
+    footer { background: var(--dark2); border-top: 1px solid var(--border); padding: 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .footer-logo { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .footer-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 1px; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--muted2); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--light); }
+    .footer-col-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+
+    /* Responsive Breakpoints */
+    @media(max-width: 1100px) {
+      .member-card {
+        flex: 0 0 calc(25% - 0.9rem);
+        max-width: calc(25% - 0.9rem);
+      }
+    }
+    @media(max-width: 850px) {
+      .member-card {
+        flex: 0 0 calc(33.333% - 0.9rem);
+        max-width: calc(33.333% - 0.9rem);
+      }
+    }
+    @media(max-width: 600px) {
+      .member-card {
+        flex: 0 0 calc(50% - 0.6rem);
+        max-width: calc(50% - 0.6rem);
+      }
+      .team-section { padding: 3rem 1.25rem; }
+      .coaches-section { padding: 2rem 1.25rem 3rem; }
+      .page-hero { padding: 2.5rem 1.25rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <img class="nav-logo" src="logo.png" alt="Logo">
+      <span class="nav-name">Ctrl-Alt-Defeat</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About FIRST</a></li>
+      <li><a href="season.html">Seasons</a></li>
+      <li><a href="robot.html">Robot</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mob">
+    <a href="index.html">Home</a>
+    <a href="about.html">About FIRST</a>
+    <a href="season.html">Seasons</a>
+    <a href="robot.html">Robot</a>
+    <a href="team.html">Team</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">Team #31844</div>
+      <h1>Meet the Team</h1>
+      <div class="divider-red"></div>
+      <p>The students and coaches behind Ctrl-Alt-Defeat. Every robot is built by people — here are ours.</p>
+    </div>
+  </div>
+
+  <!-- STUDENTS (5 TOP, 4 CENTERED BOTTOM) -->
+  <div class="team-section">
+    <div class="container">
+      <div class="section-label">The Students</div>
+      <h2 class="section-title">Our Members</h2>
+      <p class="section-sub">The 9 students who make it all happen — from building and coding to outreach and strategy.</p>
+
+      <div class="members-grid">
+
+        <!-- MEMBER 1 (PHOTO AVAILABLE) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="member1.jpg" alt="Team Member" style="object-position: top;">
+          </div>
+          <div class="member-info">
+            <div class="member-name">Karthik</div>
+            <div class="member-role">Engineering, Game Strategy, & Project Management</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 2 (PHOTO AVAILABLE) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="member2.jpg" alt="Team Member 2">
+          </div>
+          <div class="member-info">
+            <div class="member-name">Samuel</div>
+            <div class="member-role">Engineering, Business, Outreach, Social Media, & Game Strategy</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 3 (PHOTO AVAILABLE) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="member3.jpg" alt="Team Member 3">
+          </div>
+          <div class="member-info">
+            <div class="member-name">Riddhi</div>
+            <div class="member-role">Engineering, Business, Outreach, & Project Management</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 4 (PHOTO AVAILABLE) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="member4.jpg" alt="Team Member 4">
+          </div>
+          <div class="member-info">
+            <div class="member-name">Sushant</div>
+            <div class="member-role">Engineering & Social Media</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 5 (BLANK PLACEHOLDER) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Caleb</div>
+            <div class="member-role">Engineering & Game Strategy</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 6 (BLANK PLACEHOLDER) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Jene</div>
+            <div class="member-role">Engineering, Social Media, Game Strategy, & Project Management</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 7 (BLANK PLACEHOLDER) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Ishi</div>
+            <div class="member-role">Outreach, Game Strategy, & Project Management</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 8 (BLANK PLACEHOLDER) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Lalithh</div>
+            <div class="member-role">Engineering</div>
+          </div>
+        </div>
+
+        <!-- MEMBER 9 (BLANK PLACEHOLDER) -->
+        <div class="member-card">
+          <div class="member-photo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Asher</div>
+            <div class="member-role">Engineering, Social Media, & Game Strategy</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- COACHES (MATCHING MEMBER CARD LAYOUT) -->
+  <div class="coaches-section">
+    <div class="container">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-title">Coaches</h2>
+      <p class="section-sub">The coaches who guide, support, and keep our team running behind the scenes.</p>
+
+      <div class="coaches-grid">
+
+        <!-- COACH 1 -->
+        <div class="member-card">
+          <div class="member-photo">
+            <!-- Swap SVG with <img src="coach1.jpg" alt="Head Coach"> when ready -->
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Jude</div>
+            <div class="member-role">Lead Coach</div>
+          </div>
+        </div>
+
+        <!-- COACH 2 -->
+        <div class="member-card">
+          <div class="member-photo">
+            <!-- Swap SVG with <img src="coach2.jpg" alt="Assistant Coach"> when ready -->
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; background:#141418;">
+              <circle cx="50" cy="50" r="50" fill="#1b1b22"/>
+              <circle cx="50" cy="38" r="18" fill="#30303a"/>
+              <path d="M 20 88 A 32 32 0 0 1 80 88 Z" fill="#30303a"/>
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#c94040" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <div class="member-name">Gowri</div>
+            <div class="member-role">Coach</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <div class="container">
+      <div class="section-label">DECODE (2025-26) Team</div>
+        <div class="member-name">Jene, Riddhi, Ishi, Haley, Sam, Karthik, Caleb</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-logo" src="logo.png" alt="Logo">
+          <span class="footer-name">Ctrl-Alt-Defeat · #31844</span>
+        </div>
+        <div class="footer-copy">FTC Robotics · DECODE Season 2025–26<br/>© 2026 Team 31844. All rights reserved.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <div class="footer-links">
+          <a href="about.html">About FIRST</a>
+          <a href="season.html">Seasons Info</a>
+          <a href="robot.html">Our Robot</a>
+          <a href="team.html">Meet the Team</a>
+          <a href="outreach.html">Outreach</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:ctrlaltdefeat29@gmail.com">ctrlaltdefeat29@gmail.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
