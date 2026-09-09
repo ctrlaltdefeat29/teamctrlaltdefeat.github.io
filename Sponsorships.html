@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sponsorships | Ctrl-Alt-Defeat #31844</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    :root {
+      --dark: #0f1115;
+      --dark2: #161920;
+      --dark3: #1f232d;
+      --card: #181b22;
+      --border: #2a2e3d;
+      --red: #c94040;
+      --red-hover: #e04848;
+      --light: #f0f2f5;
+      --muted: #8a91a0;
+      --muted2: #b0b7c6;
+      --gold: #f1c40f;
+      --silver: #bdc3c7;
+      --bronze: #e67e22;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--dark);
+      color: var(--light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--light);
+      font-weight: 700;
+    }
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: var(--muted2);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--red);
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 4rem 2.5rem 3rem;
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: 2px;
+      margin: 0.5rem 0;
+      line-height: 1.1;
+    }
+    .divider-red {
+      width: 56px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 2px;
+      margin: 1rem auto;
+    }
+    .page-hero p {
+      color: var(--muted2);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* WHY SPONSOR SECTION */
+    .why-sponsor {
+      padding: 4rem 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .why-card:hover {
+      border-color: rgba(201, 64, 64, 0.4);
+      transform: translateY(-3px);
+    }
+    .why-card h3 {
+      color: var(--red);
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+
+    /* SPONSORSHIP TIERS */
+    .tiers-section {
+      padding: 4rem 0;
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .tier-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .tier-card.featured {
+      border-color: var(--red);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--red);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+    .tier-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .tier-amount {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+    }
+    .tier-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      flex-grow: 1;
+    }
+    .tier-benefits li {
+      margin-bottom: 0.75rem;
+      color: var(--muted2);
+      font-size: 0.95rem;
+    }
+
+    /* CALL TO ACTION */
+    .cta-section {
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .btn-sponsor {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 2.25rem;
+      font-weight: 700;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      transition: background-color 0.2s, transform 0.2s;
+      margin-top: 1.5rem;
+    }
+    .btn-sponsor:hover {
+      background: var(--red-hover);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .footer-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .footer-name {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: var(--muted2);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--light);
+    }
+    .footer-col-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <img class="nav-logo" src="logo.png" alt="Logo">
+      <span class="nav-name">Ctrl-Alt-Defeat</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About FIRST</a></li>
+      <li><a href="season.html">Seasons</a></li>
+      <li><a href="robot.html">Robot</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="sponsorships.html" class="active">Sponsorships</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">Support Team #31844</div>
+      <h1>Partner & Sponsor Us</h1>
+      <div class="divider-red"></div>
+      <p>We are officially open for sponsorships! Join us in empowering high school students through hands-on STEM education, robotics engineering, and community leadership.</p>
+    </div>
+  </div>
+
+  <!-- WHY SPONSOR SECTION -->
+  <section class="why-sponsor">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">Why Sponsor Ctrl-Alt-Defeat?</h2>
+      <p style="text-align: center; color: var(--muted2); max-width: 600px; margin: 0 auto 2rem;">Your sponsorship directly fuels our team's hardware, tournament registration fees, travel expenses, and community outreach programs.</p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Empower Local STEM</h3>
+          <p>Directly support high school students learning real-world mechanical design, CAD modeling, autonomous programming, and project management.</p>
+        </div>
+        <div class="why-card">
+          <h3>Community Reach</h3>
+          <p>Gain visibility across regional tournaments, community STEM workshops, school events, and digital media platforms showcasing your corporate citizenship.</p>
+        </div>
+        <div class="why-card">
+          <h3>Future Workforce</h3>
+          <p>Invest in the next generation of engineers, software developers, and technology leaders preparing for top STEM university programs and careers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORSHIP TIERS -->
+  <section class="tiers-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">Sponsorship Tiers</h2>
+      <p style="text-align: center; color: var(--muted2); margin-bottom: 2.5rem;">Choose a sponsorship level that fits your organization's goals.</p>
+
+      <div class="tiers-grid">
+        <!-- BRONZE TIER -->
+        <div class="tier-card">
+          <div class="tier-name" style="color: var(--bronze);">Bronze</div>
+          <div class="tier-amount">$250+</div>
+          <ul class="tier-benefits">
+            <li>✓ Logo listed on team website</li>
+            <li>✓ Social media thank-you post</li>
+            <li>✓ Sponsor name on pit displays</li>
+          </ul>
+        </div>
+
+        <!-- SILVER TIER -->
+        <div class="tier-card">
+          <div class="tier-name" style="color: var(--silver);">Silver</div>
+          <div class="tier-amount">$500+</div>
+          <ul class="tier-benefits">
+            <li>✓ Small logo on competition robot</li>
+            <li>✓ Medium logo on team website</li>
+            <li>✓ Shoutout in team newsletter</li>
+            <li>✓ All Bronze benefits included</li>
+          </ul>
+        </div>
+
+        <!-- GOLD TIER -->
+        <div class="tier-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-name" style="color: var(--gold);">Gold</div>
+          <div class="tier-amount">$1,000+</div>
+          <ul class="tier-benefits">
+            <li>✓ Large logo on competition robot</li>
+            <li>✓ Prominent logo on website & shirts</li>
+            <li>✓ Dedicated social media spotlight</li>
+            <li>✓ All Silver benefits included</li>
+          </ul>
+        </div>
+
+        <!-- PLATINUM TIER -->
+        <div class="tier-card">
+          <div class="tier-name" style="color: var(--red);">Platinum</div>
+          <div class="tier-amount">$2,500+</div>
+          <ul class="tier-benefits">
+            <li>✓ Title sponsor recognition</li>
+            <li>✓ Largest logo on robot & banner</li>
+            <li>✓ VIP invitation to competition pits</li>
+            <li>✓ Custom plaque/trophy from team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Become a Sponsor Today</h2>
+      <p style="color: var(--muted2); max-width: 600px; margin: 0 auto 1.5rem;">Interested in partnering with Team #31844? We would love to share our sponsorship packet or discuss custom sponsorship opportunities.</p>
+      <a href="contact.html" class="btn-sponsor">Contact Us to Partner</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">
+            <img class="footer-logo" src="logo.png" alt="Logo">
+            <span class="footer-name">Ctrl-Alt-Defeat · #31844</span>
+          </div>
+          <div class="footer-copy">FTC Robotics · BIOBUZZ Season 2026–27<br/>© 2026 Team 31844. All rights reserved.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Pages</div>
+          <div class="footer-links">
+            <a href="about.html">About FIRST</a>
+            <a href="season.html">Seasons Info</a>
+            <a href="robot.html">Our Robot</a>
+            <a href="team.html">Meet the Team</a>
+            <a href="outreach.html">Outreach</a>
+            <a href="sponsorships.html">Sponsorships</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="mailto:ctrlaltdefeat29@gmail.com">ctrlaltdefeat29@gmail.com</a>
+            <a href="contact.html">Send a Message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
